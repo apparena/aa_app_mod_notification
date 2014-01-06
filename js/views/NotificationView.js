@@ -1,6 +1,6 @@
 require.config({
-    paths: {
-        'pnotify': 'libs/jquery.pnotify'
+    paths:     {
+        'pnotify': '../modules/notification/js/libs/jquery/jquery.pnotify'
     },
     'pnotify': {
         deps:    ['jquery'],
@@ -22,6 +22,7 @@ define([
 
     View = Backbone.View.extend({
         initialize: function (options) {
+            _.bindAll(this, 'setOptions', 'show', 'resetOptions');
             this.setOptions(options);
             $.pnotify.defaults.history = false;
         },
@@ -33,12 +34,7 @@ define([
          * @returns {*}
          */
         setOptions: function (options, reset) {
-            //this.model = new NotificationModel();
-
-            if (_.isUndefined(_.singleton.model.notification)) {
-                _.singleton.model.notification = new NotificationModel();
-            }
-            this.model = _.singleton.model.notification;
+            this.model = NotificationModel.init();
 
             if (_(reset).isUndefined()) {
                 this.resetOptions();
@@ -63,7 +59,6 @@ define([
         },
 
         resetOptions: function () {
-            //_.debug.log('reset option');
             this.model.clear({silent: true}).set(this.model.defaults);
             return this;
         }
