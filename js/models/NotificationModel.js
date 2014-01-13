@@ -1,48 +1,23 @@
 define([
+    'ModelExtend',
     'underscore',
     'backbone'
-], function (_, Backbone) {
-    var namespace = 'notification',
-        Model, Init, Remove, Instance;
+], function (Model, _, Backbone) {
+    'use strict';
 
-    Model = Backbone.Model.extend({
-        defaults: {
-            title:       '',
-            description: '',
-            type:        'info',
-            delay:       3000,
-            position:    'stack-topright'
-        }
-    });
+    return function () {
+        Model.namespace = 'notification';
 
-    Remove = function () {
-        _.singleton.model[namespace].unbind().remove();
-        delete _.singleton.model[namespace];
-    };
-
-    Init = function (init) {
-
-        if (_.isUndefined(_.singleton.model[namespace])) {
-            _.singleton.model[namespace] = new Model();
-        } else {
-            if (!_.isUndefined(init) && init === true) {
-                Remove();
-                _.singleton.model[namespace] = new Model();
+        Model.code = Backbone.Model.extend({
+            defaults: {
+                title:       '',
+                description: '',
+                type:        'info',
+                delay:       3000,
+                position:    'stack-topright'
             }
-        }
+        });
 
-        return _.singleton.model[namespace];
-    };
-
-    Instance = function () {
-        return _.singleton.model[namespace];
-    };
-
-    return {
-        init:        Init,
-        model:       Model,
-        remove:      Remove,
-        namespace:   namespace,
-        getInstance: Instance
-    };
+        return Model;
+    }
 });
