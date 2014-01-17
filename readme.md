@@ -31,7 +31,7 @@ Install notification module
 Put follow into the config.js (requirejs config file)
 
 Path:
-    'pnotify': '../modules/notification/js/libs/jquery.pnotify',
+    'pnotify': '../modules/aa_app_mod_notification/js/libs/jquery.pnotify',
 
 Shim:
     'pnotify': {
@@ -40,7 +40,7 @@ Shim:
     }
 
 Put the follow line into the css/style.css
-    @import "../modules/notification/css/jquery.pnotify.default.css";
+    @import "../modules/aa_app_mod_notification/css/jquery.pnotify.default.css";
 
 Usage
 ===========================

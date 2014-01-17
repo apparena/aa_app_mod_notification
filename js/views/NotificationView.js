@@ -1,6 +1,6 @@
 require.config({
     paths:     {
-        'pnotify': '../modules/notification/js/libs/jquery/jquery.pnotify'
+        'pnotify': '../modules/aa_app_mod_notification/js/libs/jquery/jquery.pnotify'
     }
 });
 
@@ -9,7 +9,7 @@ define([
     'jquery',
     'underscore',
     'backbone',
-    'modules/notification/js/models/NotificationModel',
+    'modules/aa_app_mod_notification/js/models/NotificationModel',
     'pnotify'
 ], function (View, $, _, Backbone,NotificationModel) {
     'use strict';
