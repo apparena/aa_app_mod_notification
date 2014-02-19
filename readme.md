@@ -1,67 +1,63 @@
-# App-Arena.com App Module: Logging
-Github: https://github.com/apparena/aa_app_mod_notification
+# Appalizr.com Module: Logging
 
-Docs:   http://www.app-arena.com/docs/display/developer
+Docs:   [Appalizr.com](http://www.appalizr.com/docs.html)
 
-This is a module of the [aa_app_template](https://github.com/apparena/aa_app_template)
+Shows a notification window, based on the jQuery plugin pNotify. With the „setOption“ method, you can define different options, like position, delay time, type [error, warning, info …] and some more.
 
-## Module job
-
-
-### Dependencies
-* Nothing
-
-### Example
-```javascript
-...
+```
+NotificationView().init().setOptions({Object}).show();
 ```
 
-### Load module with require
+### Dependencies
+No module Dependencies.
+
+## Include
+### Require.js
+```
+define(['modules/aa_app_mod_notification/js/views/NotificationView'], function (NotificationView) {});
+```
+
+## Methods
+
+### setOptions({Options},Reset)
+
+#### Options
+
+| Key   | Type    | Options | Default | Description |
+| ----   | ----    | ---- | ---- | ---- |
+| delay   | `int`    |  | 3000 | Delay time in ms |
+| title   | `string`    |  |  | Notification headline |
+| text   | `string`    |  |  | Notification text under the headline |
+| type   | `string`    | success / error / notice / info | info | Notification type |
+| position   | `string`    | stack-topright / stack-topleft / stack-bottomright / stack-bottomleft | stack-topright | position of the shown notification window |
+| before_open   | `function`    |  |  | Function that is called, before a notice is shown. For example to define the exact position in a facebook iFrame. See examples. |
+
+#### Reset
+| Options | Default | Description |
+| ---- | ---- | ---- |
+| true / false | false | If this value is set, the settings will be reset to defaults. |
 
 
+## Return
+Nothing
 
+## Examples
 
+### Basic info
+```
+NotificationView().init().setOptions({
+    title:       'Info',
+    description: 'This is a special info for you!'
+}).show();
+```
 
-
-
-
-Install notification module
-===========================
-
-Put follow into the config.js (requirejs config file)
-
-Path:
-    'pnotify': '../modules/aa_app_mod_notification/js/libs/jquery.pnotify',
-
-Shim:
-    'pnotify': {
-        deps:    ['jquery'],
-        exports: 'pnotify'
-    }
-
-Put the follow line into the css/style.css
-    @import "../modules/aa_app_mod_notification/css/jquery.pnotify.default.css";
-
-Usage
-===========================
-* Load dependency in your view: 'modulesSrc/notification/js/views/NotificationView' => NotificationView
-* Set some properties as json string and Initialize NotificationView
-    var notice_prperties = {
-        title:       'Title text in the notivication',
-        description: 'A message or some description under the title',
-        type:        'error', // error, success, notice, info (default)
-        delay:       8000,
-        position:    'stack-topright' // stack-bottomleft, stack-bottomright, stack-topleft, stack-topright (default)
-    },
-    notification = new NotificationView(notice_prperties);
-* show notice
-    notification.show();
-* set new message and show
-    var notice_prperties = {
-        title:       'Title text in the notivication',
-        description: 'A message or some description under the title',
-        type:        'error', // error, success, notice, info (default)
-        delay:       8000, (3000 = default)
-        position:    'stack-topright' // stack-bottomleft, stack-bottomright, stack-topleft, stack-topright (default)
-    },
-    notification.setOptions(notice_prperties).show();
+### Error bottom right
+```
+NotificationView().init().setOptions({
+    title:       'Error',
+    description: 'An error occurred!'
+    type:        'error',
+    position:    'stack-bottomright',
+    delay:       8000
+}).show();
+```
