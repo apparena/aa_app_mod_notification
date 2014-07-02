@@ -15,6 +15,23 @@ Shows a notification window, based on the jQuery plugin pNotify. With the „set
 * **show** - shows the notification with the defined settings
 * **resetOptions** - reset all options to the default ones
 
+### Function parameter
+#### setOptions({Options},Reset)
+* Options (JSON)
+| Key | Type | Options | Default | Description |
+|--------|--------|--------|--------|--------|
+| delay | int | &nbsp; | 3000 | Delay time in ms |
+| title | string | &nbsp; | &nbsp; | Notification headline |
+| text | string | &nbsp; | &nbsp; | Notification text under the headline |
+| type | string | success / error / notice / info | info | Notification type |
+| position | string | stack-topright / stack-topleft / stack-bottomright / stack-bottomleft | stack-topright | position of the shown notification window |
+| before_open | function | &nbsp; | &nbsp; | 	Function that is called, before a notice is shown. For example to define the exact position in a facebook iFrame. See examples. |
+
+* Reset (Boolean)
+| Options | Default | Description |
+|--------|--------|--------|
+| true / false | false | If this value is set, the settings will be reset to defaults. |
+
 ### Example
 #### Basic info
 ```javascript
