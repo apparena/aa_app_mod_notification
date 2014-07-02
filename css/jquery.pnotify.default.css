@@ -2,14 +2,14 @@
 Document   : jquery.pnotify.default.css
 Created on : Nov 23, 2009, 3:14:10 PM
 Author     : Hunter Perrin
-Version    : 1.2.2
-Link       : http://pinesframework.org/pnotify/
+Version    : 1.3.1
+Link       : http://sciactive.com/pnotify/
 Description:
-	Default styling for Pines Notify jQuery plugin.
+	Default styling for PNotify jQuery plugin.
 */
 /* -- Notice */
 .ui-pnotify {
-    top: 60px;
+    top: 25px;
     right: 25px;
     position: absolute;
     height: auto;
@@ -18,7 +18,7 @@ Description:
 }
 
 /* Hides position: fixed from IE6 */
-html > body .ui-pnotify {
+html > body > .ui-pnotify {
     position: fixed;
 }
 
@@ -31,7 +31,6 @@ html > body .ui-pnotify {
 .ui-pnotify-container {
     background-position: 0 0;
     padding: .8em;
-    height: 100%;
     margin: 0;
 }
 
@@ -49,6 +48,7 @@ html > body .ui-pnotify {
 .ui-pnotify-title {
     display: block;
     margin-bottom: .4em;
+    margin-top: 0;
 }
 
 .ui-pnotify-text {
@@ -81,6 +81,7 @@ html > body .ui-pnotify {
 
 .ui-pnotify-history-container .ui-pnotify-history-header {
     padding: 2px;
+    text-align: center;
 }
 
 .ui-pnotify-history-container button {
