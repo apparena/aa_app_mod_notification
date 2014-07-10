@@ -1,8 +1,7 @@
 # App-Arena.com App Module: Logging
-**Github:** https://github.com/apparena/aa_app_mod_notification
-**Docs:**   http://www.appalizr.com/index.php/notifications.html
-
-This is a module of the [aa_app_template](https://github.com/apparena/aa_app_template)
+* **Github:** https://github.com/apparena/aa_app_mod_notification
+* **Docs:**   http://www.appalizr.com/index.php/notifications.html
+* This is a module of the [aa_app_template](https://github.com/apparena/aa_app_template)
 
 ## Module job
 Shows a notification window, based on the jQuery plugin pNotify. With the „setOption“ method, you can define different options, like position, delay time, type [error, warning, info …] and some more.
