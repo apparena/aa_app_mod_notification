@@ -1,5 +1,5 @@
 require.config({
-    paths:     {
+    paths: {
         'pnotify': '../modules/aa_app_mod_notification/js/libs/jquery/jquery.pnotify'
     }
 });
@@ -11,7 +11,7 @@ define([
     'backbone',
     'modules/aa_app_mod_notification/js/models/NotificationModel',
     'pnotify'
-], function (View, $, _, Backbone,NotificationModel) {
+], function (View, $, _, Backbone, NotificationModel) {
     'use strict';
 
     return function () {
@@ -50,8 +50,14 @@ define([
                     type:        this.model.get('type'),
                     addclass:    this.model.get('position'),
                     before_open: this.model.get('before_open') || '',
-                    styling:     'bootstrap',
-                    sticker:     false
+                    styling:     'bootstrap3',
+                    sticker:     false,
+                    history:     false/*,
+                    stack: {
+                        "dir1":    "down",
+                        "dir2":    "left",
+                        "context": $("#stack-context")
+                    }*/
                 });
                 return this;
             },
